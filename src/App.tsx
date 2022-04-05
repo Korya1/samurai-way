@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import Header from "./components/Header/Header";
-import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Profile/Profile";
+import {Dialog} from './components/Dialogs/Dialogs';
+import {Header} from "./components/Header/Header";
+import {Navbar} from "./components/Navbar/Navbar";
+import {Profile} from "./components/Profile/Profile";
 
 
 const App = () => {
@@ -10,7 +11,11 @@ const App = () => {
         <div className='app_wrapper'>
             <Header/>
             <Navbar/>
-            <Profile/>
+            <div className='app_wrapper_content'>
+                <Dialog />
+                {/*<Profile/>*/}
+            </div>
+
         </div>
     );
 }

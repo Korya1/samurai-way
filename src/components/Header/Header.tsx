@@ -2,7 +2,7 @@ import React from "react";
 import s from "./Header.module.css";
 
 
-const Header = () => {
+export function Header(){
     return (
         <header className={s.header}>
             <img
@@ -10,5 +10,3 @@ const Header = () => {
         </header>
     );
 }
-
-export default Header;

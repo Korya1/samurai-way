@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Navbar.module.css";
 
-const Navbar = () => {
+export function Navbar() {
     return (
         <nav className={s.content}>
             <div className = {s.item}>
@@ -22,5 +22,3 @@ const Navbar = () => {
         </nav>
     );
 }
-
-export default Navbar;
