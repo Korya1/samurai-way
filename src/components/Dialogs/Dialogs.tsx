@@ -1,10 +1,11 @@
 import React from 'react';
+import s from './Dialogs.module.css'
 
 
-export function Dialog(){
+export function Dialogs(){
     return (
         <div>
-            d
+            dialogs
         </div>
     )
 }
