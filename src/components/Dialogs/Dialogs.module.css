@@ -1,0 +1,24 @@
+.dialogs{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.users{
+    padding: 10px;
+}
+
+.user{
+
+}
+
+.user.active{
+    color: dodgerblue;
+}
+
+.messages{
+    padding: 10px;
+}
+
+.message{
+
+}
