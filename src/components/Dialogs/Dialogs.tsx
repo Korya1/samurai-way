@@ -1,50 +1,50 @@
 import React from 'react';
 import s from './Dialogs.module.css'
-import {NavLink} from "react-router-dom";
+import {DialogItem} from "./DialogItem/DialogItem";
+import {MessageItem} from "./MessageItem/MessageItem";
 
-type DialogItemPropsType = {
-    uName: string
+export type DialogItemPropsType = {
+    name: string
     id: number
 }
 
-type MessageItemPropsType = {
-    message:string
+export type MessageItemPropsType = {
+    message: string
+    id: number
 }
 
 
-function DialogItem({uName, id}: DialogItemPropsType) {
-    return (
-        <div className={s.user}>
-            <NavLink to={`/dialogs/${id}`}>{uName}</NavLink>
-        </div>
-    )
-}
+const usersData: DialogItemPropsType[] = [
+    {name: 'User 1', id: 1},
+    {name: 'User 2', id: 2},
+    {name: 'User 3', id: 3},
+    {name: 'User 4', id: 4},
+    {name: 'User 5', id: 5},
+    {name: 'User 5', id: 6}
+]
 
-
-function MessageItem({message}: MessageItemPropsType) {
-    return <div className={s.message}>{message}</div>
-}
+const usersMessagesData: MessageItemPropsType[] = [
+    {message: 'Message 1', id: 1},
+    {message: 'Message 2', id: 2},
+    {message: 'Message 3', id: 3},
+    {message: 'Message 4', id: 4},
+    {message: 'Message 5', id: 5},
+    {message: 'Message 6', id: 6},
+]
 
 export function Dialogs() {
+
+    const usersDataMap = usersData.map(n => <DialogItem name={n.name} id={n.id}/>);
+    const usersMessagesDataMap = usersMessagesData.map(n => <MessageItem message={n.message} id={n.id}/>)
+
     return (
         <div>
             <div className={s.dialogs}>
                 <div className={s.users}>
-                    <DialogItem uName={'User 1'} id={1}/>
-                    <DialogItem uName={'User 2'} id={2}/>
-                    <DialogItem uName={'User 3'} id={3}/>
-                    <DialogItem uName={'User 4'} id={4}/>
-                    <DialogItem uName={'User 5'} id={5}/>
-                    <DialogItem uName={'User 6'} id={6}/>
-
+                    {usersDataMap}
                 </div>
                 <div className={s.messages}>
-                    <MessageItem message={'Message 1'}/>
-                    <MessageItem message={'Message 2'}/>
-                    <MessageItem message={'Message 3'}/>
-                    <MessageItem message={'Message 4'}/>
-                    <MessageItem message={'Message 5'}/>
-                    <MessageItem message={'Message 6'}/>
+                    {usersMessagesDataMap}
                 </div>
             </div>
         </div>
