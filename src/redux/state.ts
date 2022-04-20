@@ -1,35 +1,33 @@
+import {rerenderEntireTree} from '../render';
+
 export type usersMessagesDataType = {
     message: string
     id: number
 }
-
 export type usersDataType = {
     name: string
     id: number
 }
-
 export type dialogsPageType = {
     usersData: usersDataType[]
     usersMessagesData: usersMessagesDataType[]
 }
-
 export type postsDataType = {
     message: string
     likeCount: number
     id: number
 }
-
 export type profilePageType = {
     postsData: postsDataType[]
 }
-
 export type stateType = {
     profilePage: profilePageType
     dialogsPage: dialogsPageType
+    sideBar: any
 }
 
 
-export const state = {
+export const state: stateType = {
     profilePage: {
         postsData: [
             {message: 'Hello', likeCount: 15, id: 1},
@@ -55,5 +53,15 @@ export const state = {
         ]
     },
     sideBar: {}
+}
+
+export const addPost = (post: string) => {
+    const newPost: postsDataType = {
+        message: post,
+        likeCount: 0,
+        id: 5
+    }
+    state.profilePage.postsData.unshift(newPost);
+    rerenderEntireTree(state);
 }
 
